@@ -1,0 +1,27 @@
+---
+- hosts: Webserver
+  become: true
+  tasks:
+  - name: installation package on redhat family
+    when: ansible_os family = "Red-hat"
+    yum: path={{item}} state=present
+    with_items:
+    - vim
+    - zip
+    - curl
+    - nginx
+
+
+- hosts: Webserver
+  become: true
+  tasks:
+  - name: installation package on Debian family
+    when: ansible_os family = "Debian"
+    apt: path={{item}} state=present
+    with_items:
+    - vim
+    - zip
+    - curl
+    - nginx
+
+Ansible Playbook with_item.yml
