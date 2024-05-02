@@ -25,3 +25,15 @@
     - nginx
 
 Ansible Playbook with_item.yml
+
+
+Terraform
+aws code--
+resource "aws_instance" "web" {
+  ami           = ami-013e83f579886baeb
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "HelloWorld"
+  }
+
